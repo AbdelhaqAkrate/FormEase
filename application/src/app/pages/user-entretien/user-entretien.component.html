@@ -1,0 +1,117 @@
+<app-navbar></app-navbar>
+
+<div class="bg-white p-8 rounded-md w-full">
+	<div class=" flex items-center justify-between pb-6">
+<div>
+			<h2 class="text-gray-600 font-semibold">Entretiens List</h2>
+		</div>
+
+  </div>
+<main class="flex flex-wrap	gap-7 gap-y-7 p-3 w-full items-center justify-center" >
+  <article *ngFor="let entretien of entretiens"
+    class="group relative flex h-[12rem] w-[30rem] overflow-hidden rounded-2xl bg-[#3a4448]"
+  >
+    <aside
+      class="absolute  flex h-full flex-col justify-center space-y-8 p-3"
+    >
+      <a
+        class="h-7 w-7 text-stone-200 opacity-0 transition-all duration-200 hover:scale-[120%] hover:text-white group-hover:visible group-hover:opacity-100"
+        [routerLink]="['/entretien', entretien.id]"
+        >
+      <svg
+        class="h-7 w-7 text-stone-200 opacity-0 transition-all duration-200 hover:scale-[120%] hover:text-white group-hover:visible group-hover:opacity-100"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+        ></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+
+      </svg>
+    </a>
+      <button
+      (click)="saveDemande(entretien.id)"
+        class="h-7 w-7  text-stone-200 opacity-0 transition-all duration-200 hover:scale-[120%] hover:text-white group-hover:visible group-hover:opacity-100"
+      >
+      <svg
+        class="h-7 w-7 text-stone-200 opacity-0 transition-all duration-200 hover:scale-[120%] hover:text-white group-hover:visible group-hover:opacity-100"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 13l4 4L19 7"
+        ></path>
+      </svg>
+      </button>
+    </aside>
+    <div
+      class="absolute inset-y-0 left-10 w-[39rem] overflow-hidden rounded-2xl transition-all duration-200 group-hover:w-[36rem]"
+    >
+      <div
+        style="background-image: url('https://unsplash.it/id/1/640/425')"
+        class="h-full w-full bg-cover bg-center"
+      >
+        <div
+          class="h-full w-full bg-[#455055]/80 transition-all duration-200 group-hover:bg-[#31383b]/80"
+        ></div>
+      </div>
+      <section
+        class="absolute inset-0 flex flex-col justify-between p-4 text-white"
+      >
+        <header class="space-y-1">
+          <div class="text-3xl font-medium">{{entretien.title}}</div>
+          <div class="font-medium">
+            by <span class="text-[#86ff5f]">{{entretien.entreprise}}</span>
+          </div>
+
+        </header>
+
+        <div
+          class="invisible flex space-x-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100"
+        >
+
+          <span class="flex items-center space-x-1">
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <div>{{ entretien.date}}</div>
+          </span>
+        </div>
+      </section>
+    </div>
+  </article>
+
+</main>
